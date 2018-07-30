@@ -1,4 +1,4 @@
-package com.mytaxi.android_demo;
+package com.mytaxi.android_demo.Test;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
