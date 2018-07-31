@@ -5,13 +5,16 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - gradle-{{ checksum "build.gradle" }}
       - run: 
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
+          name: Build gradle
+          command: gradle build
       - save_cache:
             key: jars-{{ checksum "build.gradle" }} - {{ checksum "app/build.gradle" }}
             paths: 
-              - ~/gradle
+              - ~/.gradle
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;emulator:5554;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;emulator:5554;default;armeabi-v7a"
