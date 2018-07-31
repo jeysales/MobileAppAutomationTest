@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: 
           name: Build gradle
-          command: gradle build
+          command: ./gradlew androidDependencies
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;emulator:5554;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;emulator:5554;default;armeabi-v7a"
