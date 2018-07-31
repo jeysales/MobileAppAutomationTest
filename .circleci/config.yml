@@ -10,11 +10,11 @@ jobs:
       - checkout
       - run: 
           name: Build gradle
-          command: cd AndroidDemo;./gradlew androidDependencies
+          command: cd AndroidDemo/;./gradlew androidDependencies
       #removed
       - run:
-          name: Run EspressoTests
-          command: ./gradlew lint test
+          name: Run EspressoTest
+          command: cd AndroidDemo/app/src/androidTest/java/com/mytaxi/android_demo/Test/EspressoTest;./gradlew loginTest
       - store_artifacts:
           path: app/build/reports
           destination: reports
