@@ -8,7 +8,7 @@ jobs:
       - run: echo "A first hello"
       - name: Download Dependencies
       - command: ./gradlew androidDependencies
-      - save_cache
+      - save_cache:
           paths:
             - ~/.gradle
             key: jars-{{ checksum "build.gradle" }} - {{ checksum "app/build.gradle" }}
