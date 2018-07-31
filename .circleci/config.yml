@@ -22,7 +22,6 @@ jobs:
           name: Run EspressoTest
           command: cd AndroidDemo/;./gradlew app:connectedAndroidTest
       - store_artifacts:
-          path: app/build/reports
-          destination: reports
+          path: reports.xml
       - store_test_results:
-          path: app/build/test-results
+          path: reports.xml
