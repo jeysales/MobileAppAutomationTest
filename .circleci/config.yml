@@ -10,6 +10,8 @@ jobs:
           command: ./gradlew androidDependencies
       - save_cache:
             key: jars-{{ checksum "build.gradle" }} - {{ checksum "app/build.gradle" }}
+            paths: 
+              - ~/gradle
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;emulator:5554;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;emulator:5554;default;armeabi-v7a"
